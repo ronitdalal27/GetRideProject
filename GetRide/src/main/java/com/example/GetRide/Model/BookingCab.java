@@ -1,6 +1,7 @@
 package com.example.GetRide.Model;
 
 import java.util.Date;
+import java.util.UUID;
 
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -14,6 +15,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.PrePersist;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -43,7 +45,7 @@ public class BookingCab {
     @CreationTimestamp
     Date bookedAt; //no need to set this bcoz Database will set this
 
-    int totalDistance;
+    double totalDistance;
     double totalFare;
     String pickUpLoc;
     String droploc;  
@@ -55,4 +57,15 @@ public class BookingCab {
     @ManyToOne
     @JoinColumn
     Driver driver;
+
+    @ManyToOne
+    @JoinColumn
+    Cab cab;
+
+    @PrePersist
+    public void generateBookingId() {
+        this.bookingId = UUID.randomUUID().toString();
+    }
+
+
 }

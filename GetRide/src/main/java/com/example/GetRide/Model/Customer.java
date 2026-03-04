@@ -47,5 +47,5 @@ public class Customer {
     String emailID;
 
     @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
-    List<BookingCab> bookingCab; 
+    List<BookingCab> bookingCab;
 }

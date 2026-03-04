@@ -16,7 +16,7 @@ import lombok.Setter;
 public class BookingRequest {
 
     BookingStatus bookingStatus;
-    int totalDistance;
+    double totalDistance;
     String pickUpLoc;
     String droploc;  
     String customerEmail;

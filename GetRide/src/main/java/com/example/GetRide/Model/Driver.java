@@ -22,8 +22,8 @@ import lombok.experimental.FieldDefaults;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
 @Setter
+@Getter
 @Entity
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Builder
@@ -42,7 +42,7 @@ public class Driver {
     String drivingLicense;
 
     @Column(unique = true,nullable = false)
-    long mobileNo;
+    String mobileNo;
 
     @OneToOne(mappedBy = "driver",cascade = CascadeType.ALL)
     Cab cab;

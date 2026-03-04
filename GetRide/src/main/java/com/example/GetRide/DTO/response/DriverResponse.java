@@ -13,7 +13,7 @@ import lombok.Setter;
 @Builder
 public class DriverResponse {
     String name;
-    long mobileNo;
+    String mobileNo;
     CabResponse cab;
     
 }

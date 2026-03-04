@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.GetRide.DTO.request.CustomerRequest;
 import com.example.GetRide.DTO.response.CustomerResponse;
 import com.example.GetRide.Service.CustomerService;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/v1/customer")
@@ -26,7 +27,7 @@ public class CustomerController {
 
     @SuppressWarnings({ "rawtypes", "unchecked" })
     @PostMapping
-    public ResponseEntity addCustomer(@RequestBody CustomerRequest customerRequest){
+    public ResponseEntity addCustomer(@RequestBody @Valid CustomerRequest customerRequest){
         CustomerResponse customerResponse =  customerService.addCustomer(customerRequest);
         return new ResponseEntity(customerResponse,HttpStatus.CREATED);
     }
@@ -40,10 +41,4 @@ public class CustomerController {
     public List<CustomerResponse> getCustomersByGenderAndAge(@PathVariable("gender") String gender,@PathVariable("age") int age){
         return customerService.getCustomersByGenderAndAge(gender,age);
     }
-
-    /*
-        get all customers of a particular age and gender
-        get all the customers with maximum/minimum bookings
-         
-    */
 }

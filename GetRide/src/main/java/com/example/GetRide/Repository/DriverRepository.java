@@ -6,7 +6,7 @@ import com.example.GetRide.Model.Driver;
 
 public interface DriverRepository extends JpaRepository<Driver,Integer>{
 
-    Driver findByMobileNo(long mobileNo);
+    Driver findByMobileNo(String mobileNo);
 
     
 }

@@ -63,7 +63,7 @@ public class BookingService {
         BookingCab booking = BookingTransformer.bookingRequestToBooking(bookingRequest,cab); //cab just to calculate total fare of bookingrequest coz cabrequest has fareperkm
 
         //now after having a booking object with your cross check all the entities involved in booking are set or not
-        // so here entities involved in booking are Customer and cab(driver bydefault involved)  , they need to set
+        //so here entities involved in booking are Customer and cab(driver bydefault involved)  , they need to set
 
         //now goto booking
         //everything is set just set customer n driver

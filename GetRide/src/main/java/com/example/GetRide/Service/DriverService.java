@@ -1,6 +1,7 @@
 package com.example.GetRide.Service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 import org.springframework.stereotype.Service;
 
 import com.example.GetRide.DTO.request.DriverRequest;
@@ -18,6 +19,9 @@ public class DriverService {
     DriverRepository driverRepository;
 
     public String addDriverAndCab(DriverRequest driverRequest) {
+        
+
+        System.out.println("MOBILE RECEIVED FROM DTO = " + driverRequest.getMobileNo());
        //step 1 - convert DTO to Entity
         Driver driver = DriverTransformer.driverRequestToDriver(driverRequest);
         Cab cab = CabTransformer.CabRequestToCab(driverRequest.getCabRequest());
@@ -34,7 +38,7 @@ public class DriverService {
         return "Driver Registered Successsfully !!!";
     }
 
-    public DriverResponse getDriver(long mobileNo) {
+    public DriverResponse getDriver(String mobileNo) {
         Driver savedDriver = driverRepository.findByMobileNo(mobileNo);
 
         //convert Driver entity to DriverResponse DTO
